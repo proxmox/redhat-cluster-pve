@@ -1,0 +1,50 @@
+redhat-cluster-pve (3.1.5-2) unstable; urgency=low
+
+  * add /var/lib/cluster (used by ccs_update_schema)
+
+ -- Proxmox Support Team <support@proxmox.com>  Mon, 22 Aug 2011 07:05:57 +0200
+
+redhat-cluster-pve (3.1.5-1) unstable; urgency=low
+
+  * update to latest stable 3.1.5
+
+ -- Proxmox Support Team <support@proxmox.com>  Tue, 19 Jul 2011 12:51:22 +0200
+
+redhat-cluster-pve (3.1.3-1) unstable; urgency=low
+
+  * update to latest stable 3.1.3
+  
+  * fix 45-dlm.rules install (now 51-dlm.rules)
+
+ -- Proxmox Support Team <support@proxmox.com>  Fri, 24 Jun 2011 06:26:04 +0200
+
+redhat-cluster-pve (3.1.0-1) unstable; urgency=low
+
+  * update to latest stable 3.1.0
+
+ -- Proxmox Support Team <support@proxmox.com>  Thu, 02 Dec 2010 07:18:34 +0100
+
+redhat-cluster-pve (3.0.17-1) unstable; urgency=low
+
+  * update to latest stable 3.0.17
+
+ -- Proxmox Support Team <support@proxmox.com>  Tue, 12 Oct 2010 12:24:08 +0200
+
+redhat-cluster-pve (3.0.16-1) unstable; urgency=low
+
+  * update to latest stable 3.0.16
+
+ -- Proxmox Support Team <support@proxmox.com>  Wed, 06 Oct 2010 14:01:03 +0200
+
+redhat-cluster-pve (3.0.8-1) unstable; urgency=low
+
+  * update to latest stable 3.0.8
+
+ -- Proxmox Support Team <support@proxmox.com>  Wed, 24 Feb 2010 10:13:41 +0100
+
+redhat-cluster-pve (3.0.7-1) unstable; urgency=low
+
+  [ Proxmox Support Team ]
+  * Initial release
+
+ -- Proxmox Support Team <support@proxmox.com>  Thu, 18 Feb 2010 13:22:30 +0100

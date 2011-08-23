@@ -1,0 +1,8 @@
+#disable-xvm-fence.diff
+#remove-udev-break.diff
+#change-confdir.diff
+#enable-gfs.diff
+fix-cman-init.diff
+fix-lsb-header.diff
+fix-rgmanager-init.diff
+fix-startup-config-timeout.diff

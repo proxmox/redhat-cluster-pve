@@ -1,0 +1,12 @@
+usr/sbin/*
+usr/lib/lcrso/*.lcrso usr/lib/lcrso/
+usr/lib/*.so.*
+usr/lib/*.so
+usr/share/cluster/*
+usr/share/man/man5/*
+usr/share/man/man8/*
+etc/init.d/cman
+etc/init.d/rgmanager
+etc/logrotate.d/cluster
+lib/udev/rules.d/51-dlm.rules
+usr/lib/perl5

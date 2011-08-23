@@ -1,0 +1,12 @@
+Index: cluster-3.0.6/debian/rules
+===================================================================
+--- cluster-3.0.6.orig/debian/rules	2010-02-01 13:37:05.000000000 +0100
++++ cluster-3.0.6/debian/rules	2010-02-01 13:38:12.000000000 +0100
+@@ -17,6 +17,7 @@
+ 		    --nssincdir=/usr/include/nss \
+ 		    --nsprincdir=/usr/include/nspr \
+ 		    --libexecdir=/usr/lib \
++		    --confdir=/cluster/config \
+ 		    --disable_kernel_check \
+ 		    --without_kernel_modules
+ 

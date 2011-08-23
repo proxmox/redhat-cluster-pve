@@ -1,0 +1,97 @@
+Index: new/rgmanager/init.d/rgmanager.in
+===================================================================
+--- new.orig/rgmanager/init.d/rgmanager.in	2011-07-19 12:52:29.000000000 +0200
++++ new/rgmanager/init.d/rgmanager.in	2011-08-19 10:26:15.000000000 +0200
+@@ -8,8 +8,8 @@
+ # Provides:		rgmanager
+ # Required-Start:	cman
+ # Required-Stop:	cman
+-# Default-Start:
+-# Default-Stop:
++# Default-Start:        S
++# Default-Stop:         0 6
+ # Short-Description:	Starts and stops Red Hat Service (resource group) Manager
+ # Description:		Starts and stops Red Hat Service (resource group) Manager
+ ### END INIT INFO
+@@ -20,6 +20,10 @@
+ # set secure PATH
+ PATH="/sbin:/bin:/usr/sbin:/usr/bin:@SBINDIR@"
+ 
++CCFG="/etc/cluster/cluster.conf"
++
++test -f "$CCFG" || exit 0
++
+ success()
+ {
+ 	echo -ne "[  OK  ]\r"
+@@ -33,7 +37,7 @@
+ status()
+ {
+ 	pid=$(pidof $1 2>/dev/null)
+-	rtrn=$?
++	local rtrn=$?
+ 	if [ $rtrn -ne 0 ]; then
+ 		echo "$1 is stopped"
+ 	else
+@@ -52,8 +56,7 @@
+ 
+ # deb based distros
+ if [ -d /etc/default ]; then
+-	[ -f /etc/default/cluster ] && . /etc/default/cluster
+-	[ -f /etc/default/rgmanager ] && . /etc/default/rgmanager
++	[ -f /etc/default/redhat-cluster-pve ] && . /etc/default/redhat-cluster-pve
+ 	[ -z "$LOCK_FILE" ] && LOCK_FILE="/var/lock/rgmanager"
+ fi
+ 
+@@ -72,6 +75,11 @@
+ 	done
+ }
+ 
++rgmanager_enabled()
++{
++	ccs_tool query /cluster/rm >/dev/null 2>&1
++}
++
+ rtrn=0
+ 
+ if [ "$EUID" != "0" ]; then
+@@ -81,6 +89,11 @@
+ 
+ case "$1" in
+ start)
++
++	if ! rgmanager_enabled; then
++	    exit 0;
++	fi
++
+ 	echo -n "Starting $ID: "
+ 
+ 	# most recent distributions use tmpfs for /var/run
+@@ -92,7 +105,9 @@
+ 	if status $RGMGRD > /dev/null 2>&1; then
+ 		success
+ 	else
+-		if $RGMGRD $RGMGR_OPTS; then
++	        # do not trust return code
++		$RGMGRD $RGMGR_OPTS;
++		if status $RGMGRD > /dev/null 2>&1; then
+ 			touch $LOCK_FILE
+ 			success
+ 		else
+@@ -126,11 +141,12 @@
+ 	echo -n "Stopping $ID: "
+ 
+ 	if status $RGMGRD > /dev/null 2>&1; then
+-		if stop_cluster; then
+-			success
+-		else
+-			failure
++	        stop_cluster
++		if status $RGMGRD > /dev/null 2>&1; then
++		        failure
+ 			rtrn=1
++	        else
++		        success
+ 		fi
+ 	else
+ 		success

@@ -1,0 +1,38 @@
+Source: redhat-cluster-pve
+Section: admin
+Priority: optional
+Maintainer: Proxmox Support Team <support@proxmox.com>
+Standards-Version: 3.8.3
+Build-Depends: quilt (>= 0.46-7~), debhelper (>= 7), autotools-dev, 
+ libxml2-dev, libncurses5-dev, linux-libc-dev, 
+ libnss3-dev, libnspr4-dev, bzip2, libslang2-dev, libldap2-dev, 
+ perl-modules,
+ libcorosync-pve-dev,
+ libopenais-pve-dev,
+ xsltproc,
+ python-pexpect,
+ python-pycurl
+
+Package: redhat-cluster-pve
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, 
+ ${python:Depends}, pve-cluster, corosync-pve,
+ openais-pve, python, openipmi, sg3-utils, python-pexpect, python-pycurl,
+ libnet-snmp-perl, libnet-telnet-perl, snmp, telnet, openssh-client,
+ python-openssl, libxml2-utils
+Conflicts: cman, redhat-cluster-suite, gfs2-tools, rgmanager
+Description: Red Hat cluster suite
+ RHCS is a cluster management infrastructure, for building
+ high-availability multi-node clusters with service and IP failover on
+ top of shared Fibre Channel/iSCSI storage devices.
+
+
+Package: redhat-cluster-pve-dev
+Section: libdevel
+Architecture: any
+Depends: ${misc:Depends},  redhat-cluster-pve (= ${binary:Version})
+Description: Red Hat cluster suite - cluster manager development files
+ This package is part of the Red Hat Cluster Suite, a complete
+ high-availability solution.
+ .
+ This package contains the files needed for developing applications.

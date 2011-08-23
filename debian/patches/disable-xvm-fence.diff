@@ -1,0 +1,12 @@
+Index: cluster-3.0.7/configure
+===================================================================
+--- cluster-3.0.7.orig/configure	2010-02-12 07:15:10.000000000 +0100
++++ cluster-3.0.7/configure	2010-02-12 07:25:13.000000000 +0100
+@@ -683,6 +683,7 @@
+     chomp;
+     s|fence\/agents\/| |g;
+     s|lib ||g;
++    s|xvm ||g;
+     s|nss_wrapper ||g;
+     $all_fence = $_;
+   }

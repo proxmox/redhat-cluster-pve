@@ -1,0 +1,10 @@
+Index: new/cman/daemon/cman.h
+===================================================================
+--- new.orig/cman/daemon/cman.h	2010-11-10 11:54:07.000000000 +0100
++++ new/cman/daemon/cman.h	2010-11-10 11:54:36.000000000 +0100
+@@ -16,4 +16,4 @@
+ #define DEFAULT_SHUTDOWN_TIMEOUT 5000
+ #define DEFAULT_CCSD_POLL        1000
+ #define DEFAULT_DISALLOWED       0
+-#define DEFAULT_STARTUP_CONFIG_TIMEOUT 0
++#define DEFAULT_STARTUP_CONFIG_TIMEOUT 20

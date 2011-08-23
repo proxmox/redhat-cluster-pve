@@ -1,0 +1,40 @@
+Index: new/cman/init.d/cman.in
+===================================================================
+--- new.orig/cman/init.d/cman.in	2010-12-02 07:34:43.000000000 +0100
++++ new/cman/init.d/cman.in	2010-12-17 15:22:32.000000000 +0100
+@@ -8,10 +8,10 @@
+ #
+ ### BEGIN INIT INFO
+ # Provides:		cman
+-# Required-Start:	$network $time
+-# Required-Stop:	$network $time
+-# Default-Start:
+-# Default-Stop:
++# Required-Start:	pve-cluster
++# Required-Stop:	pve-cluster
++# Default-Start:        S
++# Default-Stop:         0 6
+ # Short-Description:	Starts and stops cman
+ # Description:		Starts and stops the Cluster Manager set of daemons
+ ### END INIT INFO
+@@ -19,7 +19,10 @@
+ # set secure PATH
+ PATH="/bin:/usr/bin:/sbin:/usr/sbin:@SBINDIR@"
+ 
++CCFG="/etc/cluster/cluster.conf"
++
+ test -x @SBINDIR@/cman_tool || exit 0
++test -f "$CCFG" || exit 0
+ 
+ chkconfig2()
+ {
+@@ -68,8 +71,7 @@
+ 
+ # deb based distros
+ if [ ! -d /etc/sysconfig ]; then
+-	[ -f /etc/default/cluster ] && . /etc/default/cluster
+-	[ -f /etc/default/cman ] && . /etc/default/cman
++	[ -f /etc/default/redhat-cluster-pve ] && . /etc/default/redhat-cluster-pve
+ 	[ -z "$LOCK_FILE" ] && LOCK_FILE="/var/lock/cman"
+ 	netmanager=network-manager
+ fi

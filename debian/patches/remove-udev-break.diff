@@ -1,0 +1,12 @@
+Index: cluster-3.0.6/debian/control
+===================================================================
+--- cluster-3.0.6.orig/debian/control	2010-02-03 14:41:34.000000000 +0100
++++ cluster-3.0.6/debian/control	2010-02-03 14:41:39.000000000 +0100
+@@ -148,7 +148,6 @@
+ Section: libs
+ Architecture: any
+ Depends: ${misc:Depends}, ${shlibs:Depends}
+-Breaks: udev (<< 0.136-1)
+ Description: Red Hat cluster suite - distributed lock manager library
+  This package is part of the Red Hat Cluster Suite, a complete
+  high-availability solution.
