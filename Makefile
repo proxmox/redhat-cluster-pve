@@ -3,6 +3,9 @@ RELEASE=2.0
 RHCVER=3.1.5
 RHCBRANCH=origin/STABLE31
 
+RHCDIR=cluster-${RHCVER}
+RHCSRC=${RHCDIR}.tar.gz
+
 PACKAGE=redhat-cluster-pve
 PKGREL=2
 
@@ -13,16 +16,21 @@ DEBS=									\
 all: ${DEBS}
 	echo ${DEBS}
 
-.PHONY: cluster-${RHCVER}
-${DEBS} cluster-${RHCVER}: cluster.git
-	rm -rf cluster-${RHCVER}
-	rsync -a --exclude .git --exclude .gitignore cluster.git/ cluster-${RHCVER}
-	cp -a debian cluster-${RHCVER}/debian
-	cd cluster-${RHCVER}; dpkg-buildpackage -rfakeroot -b -us -uc
+${RHCDIR}: 
+${DEBS} ${RHCDIR}: ${RHCSRC}
+	rm -rf ${RHCDIR}
+	rsync -a --exclude .git --exclude .gitignore cluster.git/ ${RHCDIR}
+	cp -a debian ${RHCDIR}/debian
+	cd ${RHCDIR}; dpkg-buildpackage -rfakeroot -b -us -uc
 
-cluster.git download:
+${RHCSRC} download:
+	rm -rf ${RHCDIR} cluster.git
 	git clone git://git.fedorahosted.org/cluster.git cluster.git
 	cd cluster.git; git checkout -b local ${RHCBRANCH}
+	rsync -a --exclude .git --exclude .gitignore cluster.git/ ${RHCDIR}
+	tar czf ${RHCSRC}.tmp ${RHCDIR}
+	rm -rf ${RHCDIR} 
+	mv ${RHCSRC}.tmp ${RHCSRC}
 
 .PHONY: upload
 upload: ${DEBS}
@@ -38,7 +46,7 @@ distclean: clean
 	rm -rf cluster.git
 
 clean:
-	rm -rf *~ *.deb cluster-${RHCVER} ${PACKAGE}_* ${PACKAGE}-dev_*
+	rm -rf *~ *.deb ${RHCDIR} ${PACKAGE}_* ${PACKAGE}-dev_*
 
 .PHONY: dinstall
 dinstall: ${DEBS}
