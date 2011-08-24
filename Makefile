@@ -16,10 +16,9 @@ DEBS=									\
 all: ${DEBS}
 	echo ${DEBS}
 
-${RHCDIR}: 
-${DEBS} ${RHCDIR}: ${RHCSRC}
+${DEBS}: ${RHCSRC}
 	rm -rf ${RHCDIR}
-	rsync -a --exclude .git --exclude .gitignore cluster.git/ ${RHCDIR}
+	tar xf ${RHCSRC}
 	cp -a debian ${RHCDIR}/debian
 	cd ${RHCDIR}; dpkg-buildpackage -rfakeroot -b -us -uc
 
