@@ -11,7 +11,8 @@ Build-Depends: quilt (>= 0.46-7~), debhelper (>= 7), autotools-dev,
  libopenais-pve-dev,
  xsltproc,
  python-pexpect,
- python-pycurl
+ python-pycurl,
+ pve-headers-2.6.32-6-pve
 
 Package: redhat-cluster-pve
 Architecture: any
