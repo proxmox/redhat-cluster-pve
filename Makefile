@@ -1,13 +1,13 @@
 RELEASE=2.0
 
-RHCVER=3.1.5
+RHCVER=3.1.6
 RHCBRANCH=origin/STABLE31
 
 RHCDIR=cluster-${RHCVER}
 RHCSRC=${RHCDIR}.tar.gz
 
 PACKAGE=redhat-cluster-pve
-PKGREL=2
+PKGREL=1
 
 DEBS=									\
 	${PACKAGE}_${RHCVER}-${PKGREL}_amd64.deb			\
