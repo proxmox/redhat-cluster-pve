@@ -1,0 +1,25 @@
+Index: new/cman/init.d/cman.in
+===================================================================
+--- new.orig/cman/init.d/cman.in	2011-08-29 10:55:30.000000000 +0200
++++ new/cman/init.d/cman.in	2011-08-29 11:02:49.000000000 +0200
+@@ -794,9 +794,17 @@
+ 		qdiskd_enabled \
+ 		"Starting qdiskd"
+ 
+-	runwrap wait_for_quorum \
+-		none \
+-		"Waiting for quorum"
++	if [ "$INITLOGLEVEL" != "quiet" ]; then
++		echo -n "   Waiting for quorum... "
++	fi
++	if wait_for_quorum; then
++		ok
++	else
++	        # we always continue startup
++	        echo -e "$errmsg"
++		echo -ne "[IGNORE]\r"
++	        echo
++	fi
+ 
+ 	[ "$breakpoint" = "quorum" ] && exit 0
+ 
