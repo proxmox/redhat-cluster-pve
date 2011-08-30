@@ -1,4 +1,3 @@
 var/lib/cluster
 var/log/cluster
-var/run/cluster
 etc/cluster

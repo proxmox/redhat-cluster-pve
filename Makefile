@@ -20,7 +20,9 @@ ${DEBS}: ${RHCSRC}
 	rm -rf ${RHCDIR}
 	tar xf ${RHCSRC}
 	cp -a debian ${RHCDIR}/debian
+	cat ${RHCDIR}/doc/COPYRIGHT >>${RHCDIR}/debian/copyright
 	cd ${RHCDIR}; dpkg-buildpackage -rfakeroot -b -us -uc
+	lintian ${DEBS}
 
 ${RHCSRC} download:
 	rm -rf ${RHCDIR} cluster.git

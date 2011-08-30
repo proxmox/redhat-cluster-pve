@@ -1,7 +1,6 @@
 usr/sbin/*
 usr/lib/lcrso/*.lcrso usr/lib/lcrso/
 usr/lib/*.so.*
-usr/lib/*.so
 usr/share/cluster/*
 usr/share/man/man5/*
 usr/share/man/man8/*
