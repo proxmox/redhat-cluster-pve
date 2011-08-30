@@ -22,7 +22,6 @@ set -e
 case "$1" in
     purge)
 	update-rc.d cman remove >/dev/null || exit $?
-	update-rc.d gfs2 remove >/dev/null || exit $?
 	update-rc.d rgmanager remove >/dev/null || exit $?
     ;;
 

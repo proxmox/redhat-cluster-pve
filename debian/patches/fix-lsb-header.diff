@@ -1,7 +1,7 @@
 Index: new/cman/init.d/cman.in
 ===================================================================
---- new.orig/cman/init.d/cman.in	2010-12-02 07:34:43.000000000 +0100
-+++ new/cman/init.d/cman.in	2010-12-17 15:22:32.000000000 +0100
+--- new.orig/cman/init.d/cman.in	2011-08-30 11:58:11.000000000 +0200
++++ new/cman/init.d/cman.in	2011-08-30 11:58:46.000000000 +0200
 @@ -8,10 +8,10 @@
  #
  ### BEGIN INIT INFO
@@ -10,10 +10,10 @@ Index: new/cman/init.d/cman.in
 -# Required-Stop:	$network $time
 -# Default-Start:
 -# Default-Stop:
-+# Required-Start:	pve-cluster
-+# Required-Stop:	pve-cluster
-+# Default-Start:        S
-+# Default-Stop:         0 6
++# Required-Start:	$remote_fs pve-cluster
++# Required-Stop:	$remote_fs pve-cluster
++# Default-Start:        2 3 4 5
++# Default-Stop:         0 1 6
  # Short-Description:	Starts and stops cman
  # Description:		Starts and stops the Cluster Manager set of daemons
  ### END INIT INFO

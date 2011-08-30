@@ -32,13 +32,10 @@ case "$1" in
 esac
 
 if [ -x "/etc/init.d/cman" ]; then
-        update-rc.d cman start 61 S . start 5 0 6 . >/dev/null || exit $?
-fi
-if [ -x "/etc/init.d/gfs2" ]; then
-        update-rc.d gfs2 start 65 S . start 2 0 6 . >/dev/null || exit $?
+        update-rc.d cman start 21 2 3 4 5 . stop 79 0 1 6 . >/dev/null || exit $?
 fi
 if [ -x "/etc/init.d/rgmanager" ]; then
-        update-rc.d rgmanager start 65 S . start 1 0 6 . >/dev/null || exit $?
+        update-rc.d rgmanager start 99 2 3 4 5 . stop 1 0 1 6 . >/dev/null || exit $?
 fi
 
 # dh_installdeb will replace this with shell code automatically
