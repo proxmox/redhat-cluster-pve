@@ -10,17 +10,12 @@ Build-Depends: quilt (>= 0.46-7~), debhelper (>= 7), autotools-dev,
  libcorosync-pve-dev,
  libopenais-pve-dev,
  xsltproc,
- python-pexpect,
- python-pycurl,
  pve-headers-2.6.32-6-pve
 
 Package: redhat-cluster-pve
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, 
- ${python:Depends}, pve-cluster, corosync-pve,
- openais-pve, python, openipmi, sg3-utils, python-pexpect, python-pycurl,
- libnet-snmp-perl, libnet-telnet-perl, snmp, telnet, openssh-client,
- python-openssl, libxml2-utils
+ pve-cluster, corosync-pve, openais-pve, openssh-client, libxml2-utils
 Conflicts: cman, redhat-cluster-suite, gfs2-tools, rgmanager
 Description: Red Hat cluster suite
  RHCS is a cluster management infrastructure, for building
