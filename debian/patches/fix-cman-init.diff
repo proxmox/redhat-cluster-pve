@@ -1,8 +1,6 @@
 
  * check if cman_tool is installed
 
- * do not overwrite global return status 'rtrn' - use local keyword
-
 Index: new/cman/init.d/cman.in
 ===================================================================
 --- new.orig/cman/init.d/cman.in	2010-12-02 07:19:35.000000000 +0100
@@ -16,12 +14,3 @@ Index: new/cman/init.d/cman.in
  chkconfig2()
  {
  	case "$1" in
-@@ -46,7 +48,7 @@
- status()
- {
- 	pid=$(pidof $1 2>/dev/null)
--	rtrn=$?
-+	local rtrn=$?
- 	if [ $rtrn -ne 0 ]; then
- 		echo "$1 is stopped"
- 	else
