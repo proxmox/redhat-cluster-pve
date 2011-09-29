@@ -1,7 +1,7 @@
 Index: new/rgmanager/init.d/rgmanager.in
 ===================================================================
---- new.orig/rgmanager/init.d/rgmanager.in	2011-08-25 07:31:44.000000000 +0200
-+++ new/rgmanager/init.d/rgmanager.in	2011-08-30 11:57:34.000000000 +0200
+--- new.orig/rgmanager/init.d/rgmanager.in	2011-09-29 11:01:03.000000000 +0200
++++ new/rgmanager/init.d/rgmanager.in	2011-09-29 11:08:55.000000000 +0200
 @@ -6,10 +6,10 @@
  #
  ### BEGIN INIT INFO
@@ -28,15 +28,6 @@ Index: new/rgmanager/init.d/rgmanager.in
  success()
  {
  	echo -ne "[  OK  ]\r"
-@@ -33,7 +37,7 @@
- status()
- {
- 	pid=$(pidof $1 2>/dev/null)
--	rtrn=$?
-+	local rtrn=$?
- 	if [ $rtrn -ne 0 ]; then
- 		echo "$1 is stopped"
- 	else
 @@ -52,8 +56,7 @@
  
  # deb based distros

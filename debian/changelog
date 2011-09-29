@@ -1,3 +1,9 @@
+redhat-cluster-pve (3.1.7-1) unstable; urgency=low
+
+  * update to upstream release 3.1.7
+
+ -- Proxmox Support Team <support@proxmox.com>  Thu, 29 Sep 2011 11:03:50 +0200
+
 redhat-cluster-pve (3.1.6-1) unstable; urgency=low
 
   * update to upstream release 3.1.6
