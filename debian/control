@@ -15,7 +15,7 @@ Build-Depends: quilt (>= 0.46-7~), debhelper (>= 7), autotools-dev,
 Package: redhat-cluster-pve
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, 
- pve-cluster, corosync-pve, openais-pve, openssh-client, libxml2-utils
+ pve-cluster, corosync-pve, openais-pve, openssh-client, libxml2-utils, xsltproc
 Conflicts: cman, redhat-cluster-suite, gfs2-tools, rgmanager
 Description: Red Hat cluster suite
  RHCS is a cluster management infrastructure, for building
