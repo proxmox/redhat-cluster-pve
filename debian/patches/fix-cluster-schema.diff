@@ -1,0 +1,14 @@
+Index: new/config/tools/xml/cluster.rng.in.head
+===================================================================
+--- new.orig/config/tools/xml/cluster.rng.in.head	2011-12-13 12:55:22.000000000 +0100
++++ new/config/tools/xml/cluster.rng.in.head	2011-12-13 12:56:30.000000000 +0100
+@@ -988,6 +988,9 @@
+    <zeroOrMore>
+     <ref name="VM"/>
+    </zeroOrMore>
++   <zeroOrMore>
++    <ref name="PVEVM"/>
++   </zeroOrMore>
+   </interleave>
+   </element>
+  </optional>

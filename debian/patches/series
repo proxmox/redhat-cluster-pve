@@ -7,3 +7,4 @@ fix-lsb-header.diff
 fix-rgmanager-init.diff
 fix-startup-config-timeout.diff
 #fix-quorum-wait-time.diff
+fix-cluster-schema.diff
