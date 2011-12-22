@@ -7,7 +7,7 @@ RHCDIR=cluster-${RHCVER}
 RHCSRC=${RHCDIR}.tar.gz
 
 PACKAGE=redhat-cluster-pve
-PKGREL=2
+PKGREL=3
 
 DEBS=									\
 	${PACKAGE}_${RHCVER}-${PKGREL}_amd64.deb			\

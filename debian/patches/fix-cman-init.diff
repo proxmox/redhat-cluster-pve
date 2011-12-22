@@ -3,8 +3,8 @@
 
 Index: new/cman/init.d/cman.in
 ===================================================================
---- new.orig/cman/init.d/cman.in	2010-12-02 07:19:35.000000000 +0100
-+++ new/cman/init.d/cman.in	2010-12-23 11:32:12.000000000 +0100
+--- new.orig/cman/init.d/cman.in	2011-12-22 09:52:56.000000000 +0100
++++ new/cman/init.d/cman.in	2011-12-22 09:55:29.000000000 +0100
 @@ -19,6 +19,8 @@
  # set secure PATH
  PATH="/bin:/usr/bin:/sbin:/usr/sbin:@SBINDIR@"
@@ -14,3 +14,12 @@ Index: new/cman/init.d/cman.in
  chkconfig2()
  {
  	case "$1" in
+@@ -129,7 +131,7 @@
+ #     set to "yes", then the script will attempt to join the fence domain.
+ #     If FENCE_JOIN is set to any other value, the default behavior is
+ #     to join the fence domain (equivalent to "yes").
+-[ -z "$FENCE_JOIN" ] && FENCE_JOIN="yes"
++[ -z "$FENCE_JOIN" ] && FENCE_JOIN="no"
+ 
+ # FENCED_OPTS -- allow extra options to be passed to fence daemon.
+ [ -z "$FENCED_OPTS" ] && FENCED_OPTS=""

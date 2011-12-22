@@ -1,3 +1,9 @@
+redhat-cluster-pve (3.1.8-3) unstable; urgency=low
+
+  * do not join fence domain by default
+
+ -- Proxmox Support Team <support@proxmox.com>  Thu, 22 Dec 2011 09:57:56 +0100
+
 redhat-cluster-pve (3.1.8-2) unstable; urgency=low
 
   * fix schema to allow toplevel pvevm resource
