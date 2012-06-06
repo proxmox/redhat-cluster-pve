@@ -25,7 +25,7 @@ override_dh_auto_configure:
 	./configure --prefix=/usr \
 		    --libexecdir=/usr/lib \
 		    --disable_dbus \
-	            --kernel_src=/usr/src/linux-headers-2.6.32-6-pve/
+	            --kernel_src=/usr/src/linux-headers-2.6.32-12-pve/
 
 override_dh_auto_install:
 	$(MAKE) install DESTDIR=$(BUILDROOT)/debian/tmp/

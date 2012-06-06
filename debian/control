@@ -10,7 +10,7 @@ Build-Depends: quilt (>= 0.46-7~), debhelper (>= 7), autotools-dev,
  libcorosync-pve-dev,
  libopenais-pve-dev,
  xsltproc,
- pve-headers-2.6.32-6-pve
+ pve-headers-2.6.32-12-pve
 
 Package: redhat-cluster-pve
 Architecture: any
