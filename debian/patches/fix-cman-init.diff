@@ -3,21 +3,21 @@
 
 Index: new/cman/init.d/cman.in
 ===================================================================
---- new.orig/cman/init.d/cman.in	2011-12-22 09:52:56.000000000 +0100
-+++ new/cman/init.d/cman.in	2011-12-22 09:55:29.000000000 +0100
-@@ -19,6 +19,8 @@
- # set secure PATH
- PATH="/bin:/usr/bin:/sbin:/usr/sbin:@SBINDIR@"
+--- new.orig/cman/init.d/cman.in	2012-06-13 15:50:21.000000000 +0200
++++ new/cman/init.d/cman.in	2012-06-13 15:55:37.000000000 +0200
+@@ -22,6 +22,8 @@
+ # save invokation for rollback ops
+ thisinvokation="$0"
  
 +test -x @SBINDIR@/cman_tool || exit 0
 +
  chkconfig2()
  {
  	case "$1" in
-@@ -129,7 +131,7 @@
- #     set to "yes", then the script will attempt to join the fence domain.
- #     If FENCE_JOIN is set to any other value, the default behavior is
- #     to join the fence domain (equivalent to "yes").
+@@ -138,7 +140,7 @@
+ #     When setting FENCE_JOIN to "no", it is important to check 
+ #     DLM_CONTROLD_OPTS to reflect expected behavior regarding fencing
+ #     and quorum.
 -[ -z "$FENCE_JOIN" ] && FENCE_JOIN="yes"
 +[ -z "$FENCE_JOIN" ] && FENCE_JOIN="no"
  

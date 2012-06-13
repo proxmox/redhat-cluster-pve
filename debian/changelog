@@ -1,3 +1,9 @@
+redhat-cluster-pve (3.1.92-1) unstable; urgency=low
+
+  * update to STABLE32 3.1.92
+
+ -- Proxmox Support Team <support@proxmox.com>  Wed, 13 Jun 2012 15:48:46 +0200
+
 redhat-cluster-pve (3.1.8-3) unstable; urgency=low
 
   * do not join fence domain by default

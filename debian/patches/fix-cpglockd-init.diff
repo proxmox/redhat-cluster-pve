@@ -1,0 +1,54 @@
+Index: new/rgmanager/init.d/cpglockd.in
+===================================================================
+--- new.orig/rgmanager/init.d/cpglockd.in	2012-06-13 16:17:08.000000000 +0200
++++ new/rgmanager/init.d/cpglockd.in	2012-06-13 16:25:43.000000000 +0200
+@@ -6,10 +6,10 @@
+ #
+ ### BEGIN INIT INFO
+ # Provides:		cpglockd
+-# Required-Start:	cman
+-# Required-Stop:	cman
+-# Default-Start:
+-# Default-Stop:
++# Required-Start:	$remote_fs cman
++# Required-Stop:	$remote_fs cman
++# Default-Start:        2 3 4 5
++# Default-Stop:         0 1 6
+ # Short-Description:	Starts and stops the CPG lock daemon
+ # Description:		Starts and stops the CPG lock daemon
+ ### END INIT INFO
+@@ -53,9 +53,7 @@
+ 
+ # deb based distros
+ if [ -d /etc/default ]; then
+-	[ -f /etc/default/cluster ] && . /etc/default/cluster
+-	[ -f /etc/default/rgmanager ] && . /etc/default/rgmanager
+-	[ -f /etc/default/cpglockd ] && . /etc/default/cpglockd
++	[ -f /etc/default/redhat-cluster-pve ] && . /etc/default/redhat-cluster-pve
+ 	[ -z "$LOCK_FILE" ] && LOCK_FILE="/var/lock/cpglockd"
+ fi
+ 
+@@ -70,6 +68,11 @@
+ 	kill -TERM $(pidof $CPGLOCKD)
+ }
+ 
++rgmanager_enabled()
++{
++	ccs_tool query /cluster/rm >/dev/null 2>&1
++}
++
+ rtrn=0
+ 
+ if [ "$EUID" != "0" ]; then
+@@ -79,6 +82,11 @@
+ 
+ case "$1" in
+ start)
++
++	if ! rgmanager_enabled; then
++	    exit 0;
++	fi
++
+ 	echo -n "Starting $ID: "
+ 
+ 	# most recent distributions use tmpfs for /var/run

@@ -5,6 +5,7 @@ usr/share/cluster/*
 usr/share/man/man5/*
 usr/share/man/man8/*
 etc/init.d/cman
+etc/init.d/cpglockd
 etc/init.d/rgmanager
 etc/logrotate.d/cluster
 lib/udev/rules.d/51-dlm.rules

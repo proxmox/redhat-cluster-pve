@@ -1,8 +1,6 @@
-# CLUSTERNAME=""
-# NODENAME=""
-# USE_CCS="yes"
-# CLUSTER_JOIN_TIMEOUT=300
-# CLUSTER_JOIN_OPTIONS=""
-# CLUSTER_SHUTDOWN_TIMEOUT=60
-# RGMGR_OPTIONS=""
+# this file is sourced by the following init scripts:
+# /etc/init.d/cpglockd
+# /etc/init.d/cman
+# /etc/init.d/rgmanager
+
 # FENCE_JOIN="yes"
