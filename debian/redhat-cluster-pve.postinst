@@ -34,9 +34,6 @@ esac
 if [ -x "/etc/init.d/cman" ]; then
         update-rc.d cman start 21 2 3 4 5 . stop 79 0 1 6 . >/dev/null || exit $?
 fi
-if [ -x "/etc/init.d/cpglockd" ]; then
-        update-rc.d cpglockd start 98 2 3 4 5 . stop 2 0 1 6 . >/dev/null || exit $?
-fi
 if [ -x "/etc/init.d/rgmanager" ]; then
         update-rc.d rgmanager start 99 2 3 4 5 . stop 1 0 1 6 . >/dev/null || exit $?
 fi

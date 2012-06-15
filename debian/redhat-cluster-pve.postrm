@@ -23,7 +23,6 @@ case "$1" in
     purge)
 	update-rc.d cman remove >/dev/null || exit $?
 	update-rc.d rgmanager remove >/dev/null || exit $?
-	update-rc.d cpglockd remove >/dev/null || exit $?
     ;;
 
     purge|remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

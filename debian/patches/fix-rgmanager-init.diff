@@ -1,7 +1,7 @@
 Index: new/rgmanager/init.d/rgmanager.in
 ===================================================================
---- new.orig/rgmanager/init.d/rgmanager.in	2012-06-13 15:50:21.000000000 +0200
-+++ new/rgmanager/init.d/rgmanager.in	2012-06-13 15:58:49.000000000 +0200
+--- new.orig/rgmanager/init.d/rgmanager.in	2012-06-14 17:38:33.000000000 +0200
++++ new/rgmanager/init.d/rgmanager.in	2012-06-15 11:41:09.000000000 +0200
 @@ -6,10 +6,10 @@
  #
  ### BEGIN INIT INFO
@@ -10,8 +10,8 @@ Index: new/rgmanager/init.d/rgmanager.in
 -# Required-Stop:	cman cpglockd
 -# Default-Start:
 -# Default-Stop:
-+# Required-Start:	$remote_fs cman cpglockd
-+# Required-Stop:	$remote_fs cman cpglockd
++# Required-Start:	$remote_fs cman
++# Required-Stop:	$remote_fs cman
 +# Default-Start:        2 3 4 5
 +# Default-Stop:         0 1 6
  # Short-Description:	Starts and stops Red Hat Service (resource group) Manager
