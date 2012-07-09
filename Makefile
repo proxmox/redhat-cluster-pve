@@ -1,7 +1,7 @@
 RELEASE=2.1
 
 RHCVER=3.1.92
-RHCBRANCH=origin/STABLE32
+RHCBRANCH=STABLE32
 
 RHCDIR=cluster-${RHCVER}
 RHCSRC=${RHCDIR}.tar.gz
@@ -26,8 +26,7 @@ ${DEBS}: ${RHCSRC}
 
 ${RHCSRC} download:
 	rm -rf ${RHCDIR} cluster.git
-	git clone git://git.fedorahosted.org/cluster.git cluster.git
-	cd cluster.git; git checkout -b local ${RHCBRANCH}
+	git clone git://git.fedorahosted.org/cluster.git -b ${RHCBRANCH} cluster.git
 	rsync -a --exclude .git --exclude .gitignore cluster.git/ ${RHCDIR}
 	tar czf ${RHCSRC}.tmp ${RHCDIR}
 	rm -rf ${RHCDIR} 
