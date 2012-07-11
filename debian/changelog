@@ -1,3 +1,9 @@
+redhat-cluster-pve (3.1.92-2) unstable; urgency=low
+
+  * include patch from Fabio to fix config reload problems
+
+ -- Proxmox Support Team <support@proxmox.com>  Wed, 11 Jul 2012 12:01:08 +0200
+
 redhat-cluster-pve (3.1.92-1) unstable; urgency=low
 
   * update to STABLE32 3.1.92
