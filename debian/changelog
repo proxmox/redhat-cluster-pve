@@ -1,3 +1,11 @@
+redhat-cluster-pve (3.1.92-3) unstable; urgency=low
+
+  * fix bug #238: do not stop cman when not quorate
+  
+  * fix bug #112: correctly determine Linux distribution
+
+ -- Proxmox Support Team <support@proxmox.com>  Tue, 14 Aug 2012 07:38:57 +0200
+
 redhat-cluster-pve (3.1.92-2) unstable; urgency=low
 
   * include patch from Fabio to fix config reload problems

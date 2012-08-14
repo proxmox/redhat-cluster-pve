@@ -3,9 +3,11 @@
 #change-confdir.diff
 #enable-gfs.diff
 fix-cman-init.diff
+do-not-stop-when-start-fails.patch
 fix-lsb-header.diff
 fix-rgmanager-init.diff
 fix-startup-config-timeout.diff
 #fix-quorum-wait-time.diff
 fix-cluster-schema.diff
 fix-cpglockd-init.diff
+fix-dist-detection.patch

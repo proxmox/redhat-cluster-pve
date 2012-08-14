@@ -1,0 +1,66 @@
+fix bug #112: we know that we run on debian
+
+So we can simple remove those unreliable tests. 
+
+Index: new/cman/init.d/cman.in
+===================================================================
+--- new.orig/cman/init.d/cman.in	2012-08-14 07:26:22.000000000 +0200
++++ new/cman/init.d/cman.in	2012-08-14 07:28:35.000000000 +0200
+@@ -63,17 +63,8 @@
+ 	return $statusrtrn
+ }
+ 
+-# rpm based distros
+-if [ -d /etc/sysconfig ]; then
+-	[ -f @INITDDIR@/functions ] && . @INITDDIR@/functions
+-	[ -f /etc/sysconfig/cluster ] && . /etc/sysconfig/cluster
+-	[ -f /etc/sysconfig/cman ] && . /etc/sysconfig/cman
+-	[ -z "$LOCK_FILE" ] && LOCK_FILE="/var/lock/subsys/cman"
+-	netmanager=NetworkManager
+-fi
+-
+ # deb based distros
+-if [ ! -d /etc/sysconfig ]; then
++if [ -d /etc/default ]; then
+ 	[ -f /etc/default/redhat-cluster-pve ] && . /etc/default/redhat-cluster-pve
+ 	[ -z "$LOCK_FILE" ] && LOCK_FILE="/var/lock/cman"
+ 	netmanager=network-manager
+Index: new/rgmanager/init.d/cpglockd.in
+===================================================================
+--- new.orig/rgmanager/init.d/cpglockd.in	2012-08-14 07:26:47.000000000 +0200
++++ new/rgmanager/init.d/cpglockd.in	2012-08-14 07:27:23.000000000 +0200
+@@ -42,15 +42,6 @@
+ 	return $statusrtrn
+ }
+ 
+-# rpm based distros
+-if [ -d /etc/sysconfig ]; then
+-	[ -f @INITDDIR@/functions ] && . @INITDDIR@/functions
+-	[ -f /etc/sysconfig/cluster ] && . /etc/sysconfig/cluster
+-	[ -f /etc/sysconfig/rgmanager ] && . /etc/sysconfig/rgmanager
+-	[ -f /etc/sysconfig/cpglockd ] && . /etc/sysconfig/cpglockd
+-	[ -z "$LOCK_FILE" ] && LOCK_FILE="/var/lock/subsys/cpglockd"
+-fi
+-
+ # deb based distros
+ if [ -d /etc/default ]; then
+ 	[ -f /etc/default/redhat-cluster-pve ] && . /etc/default/redhat-cluster-pve
+Index: new/rgmanager/init.d/rgmanager.in
+===================================================================
+--- new.orig/rgmanager/init.d/rgmanager.in	2012-08-14 07:26:32.000000000 +0200
++++ new/rgmanager/init.d/rgmanager.in	2012-08-14 07:27:42.000000000 +0200
+@@ -46,14 +46,6 @@
+ 	return $statusrtrn
+ }
+ 
+-# rpm based distros
+-if [ -d /etc/sysconfig ]; then
+-	[ -f @INITDDIR@/functions ] && . @INITDDIR@/functions
+-	[ -f /etc/sysconfig/cluster ] && . /etc/sysconfig/cluster
+-	[ -f /etc/sysconfig/rgmanager ] && . /etc/sysconfig/rgmanager
+-	[ -z "$LOCK_FILE" ] && LOCK_FILE="/var/lock/subsys/rgmanager"
+-fi
+-
+ # deb based distros
+ if [ -d /etc/default ]; then
+ 	[ -f /etc/default/redhat-cluster-pve ] && . /etc/default/redhat-cluster-pve

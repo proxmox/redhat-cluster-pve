@@ -1,0 +1,22 @@
+fix bug #238
+
+Revert commit 65a0eef71377d2de4ad94e8f20065c4467a441e9 form upstream. We want to keep cman running even when we do not get quorum.
+
+
+Index: new/cman/init.d/cman.in
+===================================================================
+--- new.orig/cman/init.d/cman.in	2012-08-14 07:23:53.000000000 +0200
++++ new/cman/init.d/cman.in	2012-08-14 07:24:13.000000000 +0200
+@@ -210,9 +210,9 @@
+ 	echo -e "$errmsg"
+ 	failure
+ 	echo
+-	if [ "$currentaction" = "start" ]; then
+-		$thisinvokation stop
+-	fi
++#	if [ "$currentaction" = "start" ]; then
++#		$thisinvokation stop
++#	fi
+ 	exit 1
+ }
+ 
