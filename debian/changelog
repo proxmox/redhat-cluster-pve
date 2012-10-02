@@ -1,3 +1,11 @@
+redhat-cluster-pve (3.1.93-1) unstable; urgency=low
+
+  * update to STABLE32 3.1.93
+  
+  * remove cman-fix-reloading-config.patch (already in upstream)
+
+ -- Proxmox Support Team <support@proxmox.com>  Tue, 02 Oct 2012 10:57:38 +0200
+
 redhat-cluster-pve (3.1.92-3) unstable; urgency=low
 
   * fix bug #238: do not stop cman when not quorate

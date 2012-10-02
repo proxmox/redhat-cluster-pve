@@ -1,13 +1,13 @@
-RELEASE=2.1
+RELEASE=2.2
 
-RHCVER=3.1.92
+RHCVER=3.1.93
 RHCBRANCH=STABLE32
 
 RHCDIR=cluster-${RHCVER}
 RHCSRC=${RHCDIR}.tar.gz
 
 PACKAGE=redhat-cluster-pve
-PKGREL=3
+PKGREL=1
 
 DEBS=									\
 	${PACKAGE}_${RHCVER}-${PKGREL}_amd64.deb			\
@@ -19,7 +19,6 @@ all: ${DEBS}
 ${DEBS}: ${RHCSRC}
 	rm -rf ${RHCDIR}
 	tar xf ${RHCSRC}
-	cd ${RHCDIR}; patch -p 1 <../cman-fix-reloading-config.patch
 	cp -a debian ${RHCDIR}/debian
 	cat ${RHCDIR}/doc/COPYRIGHT >>${RHCDIR}/debian/copyright
 	cd ${RHCDIR}; dpkg-buildpackage -rfakeroot -b -us -uc
