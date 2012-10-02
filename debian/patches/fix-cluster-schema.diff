@@ -1,8 +1,8 @@
 Index: new/config/tools/xml/cluster.rng.in.head
 ===================================================================
---- new.orig/config/tools/xml/cluster.rng.in.head	2012-06-13 15:50:21.000000000 +0200
-+++ new/config/tools/xml/cluster.rng.in.head	2012-06-13 15:59:27.000000000 +0200
-@@ -997,6 +997,9 @@
+--- new.orig/config/tools/xml/cluster.rng.in.head	2012-10-02 10:58:00.000000000 +0200
++++ new/config/tools/xml/cluster.rng.in.head	2012-10-02 11:07:54.000000000 +0200
+@@ -998,6 +998,9 @@
     <zeroOrMore>
      <ref name="VM"/>
     </zeroOrMore>

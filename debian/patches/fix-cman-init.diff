@@ -3,8 +3,8 @@
 
 Index: new/cman/init.d/cman.in
 ===================================================================
---- new.orig/cman/init.d/cman.in	2012-06-13 15:50:21.000000000 +0200
-+++ new/cman/init.d/cman.in	2012-06-13 15:55:37.000000000 +0200
+--- new.orig/cman/init.d/cman.in	2012-10-02 10:58:00.000000000 +0200
++++ new/cman/init.d/cman.in	2012-10-02 11:07:02.000000000 +0200
 @@ -22,6 +22,8 @@
  # save invokation for rollback ops
  thisinvokation="$0"
@@ -14,10 +14,10 @@ Index: new/cman/init.d/cman.in
  chkconfig2()
  {
  	case "$1" in
-@@ -138,7 +140,7 @@
- #     When setting FENCE_JOIN to "no", it is important to check 
- #     DLM_CONTROLD_OPTS to reflect expected behavior regarding fencing
- #     and quorum.
+@@ -146,7 +148,7 @@
+ #     DLM_CONTROLD_OPTS="-f0" (at least) for correct operation.
+ #     Please note that clusters without fencing are not 
+ #     supported by Red Hat except for MRG installations.
 -[ -z "$FENCE_JOIN" ] && FENCE_JOIN="yes"
 +[ -z "$FENCE_JOIN" ] && FENCE_JOIN="no"
  

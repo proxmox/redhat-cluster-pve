@@ -5,9 +5,9 @@ Revert commit 65a0eef71377d2de4ad94e8f20065c4467a441e9 form upstream. We want to
 
 Index: new/cman/init.d/cman.in
 ===================================================================
---- new.orig/cman/init.d/cman.in	2012-08-14 07:23:53.000000000 +0200
-+++ new/cman/init.d/cman.in	2012-08-14 07:24:13.000000000 +0200
-@@ -210,9 +210,9 @@
+--- new.orig/cman/init.d/cman.in	2012-10-02 11:07:02.000000000 +0200
++++ new/cman/init.d/cman.in	2012-10-02 11:07:38.000000000 +0200
+@@ -231,9 +231,9 @@
  	echo -e "$errmsg"
  	failure
  	echo
