@@ -1,8 +1,8 @@
 Index: new/cman/init.d/cman.in
 ===================================================================
---- new.orig/cman/init.d/cman.in	2012-06-13 15:55:37.000000000 +0200
-+++ new/cman/init.d/cman.in	2012-06-13 15:56:41.000000000 +0200
-@@ -8,10 +8,10 @@
+--- new.orig/cman/init.d/cman.in	2012-11-14 06:12:44.000000000 +0100
++++ new/cman/init.d/cman.in	2012-11-14 06:33:35.000000000 +0100
+@@ -8,10 +8,11 @@
  #
  ### BEGIN INIT INFO
  # Provides:		cman
@@ -12,12 +12,13 @@ Index: new/cman/init.d/cman.in
 -# Default-Stop:
 +# Required-Start:	$remote_fs pve-cluster
 +# Required-Stop:	$remote_fs pve-cluster
++# Should-Stop:	        iscsi umountiscsi.sh
 +# Default-Start:        2 3 4 5
 +# Default-Stop:         0 1 6
  # Short-Description:	Starts and stops cman
  # Description:		Starts and stops the Cluster Manager set of daemons
  ### END INIT INFO
-@@ -22,7 +22,10 @@
+@@ -22,7 +23,10 @@
  # save invokation for rollback ops
  thisinvokation="$0"
  
@@ -28,7 +29,7 @@ Index: new/cman/init.d/cman.in
  
  chkconfig2()
  {
-@@ -71,8 +74,7 @@
+@@ -71,8 +75,7 @@
  
  # deb based distros
  if [ ! -d /etc/sysconfig ]; then

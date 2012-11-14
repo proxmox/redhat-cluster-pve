@@ -1,3 +1,10 @@
+redhat-cluster-pve (3.1.93-2) unstable; urgency=low
+
+  * correct init script dependency, so that open-iscsi is stopped after
+    cman.
+
+ -- Proxmox Support Team <support@proxmox.com>  Wed, 14 Nov 2012 06:26:12 +0100
+
 redhat-cluster-pve (3.1.93-1) unstable; urgency=low
 
   * update to STABLE32 3.1.93
