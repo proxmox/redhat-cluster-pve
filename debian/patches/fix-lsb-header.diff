@@ -1,26 +1,26 @@
 Index: new/cman/init.d/cman.in
 ===================================================================
---- new.orig/cman/init.d/cman.in	2012-11-14 06:12:44.000000000 +0100
-+++ new/cman/init.d/cman.in	2012-11-14 06:33:35.000000000 +0100
+--- new.orig/cman/init.d/cman.in	2013-03-15 07:31:33.000000000 +0100
++++ new/cman/init.d/cman.in	2013-03-15 07:35:36.000000000 +0100
 @@ -8,10 +8,11 @@
  #
  ### BEGIN INIT INFO
  # Provides:		cman
--# Required-Start:	$network $time
--# Required-Stop:	$network $time
+-# Required-Start:	$network $time fence_sanlockd
+-# Required-Stop:	$network $time fence_sanlockd
 -# Default-Start:
 -# Default-Stop:
-+# Required-Start:	$remote_fs pve-cluster
-+# Required-Stop:	$remote_fs pve-cluster
++# Required-Start:	$network $time $remote_fs pve-cluster
++# Required-Stop:	$network $time $remote_fs pve-cluster
 +# Should-Stop:	        iscsi umountiscsi.sh
 +# Default-Start:        2 3 4 5
 +# Default-Stop:         0 1 6
  # Short-Description:	Starts and stops cman
  # Description:		Starts and stops the Cluster Manager set of daemons
  ### END INIT INFO
-@@ -22,7 +23,10 @@
- # save invokation for rollback ops
- thisinvokation="$0"
+@@ -19,7 +20,10 @@
+ # set secure PATH
+ PATH="/bin:/usr/bin:/sbin:/usr/sbin:@SBINDIR@"
  
 +CCFG="/etc/cluster/cluster.conf"
 +
@@ -29,7 +29,7 @@ Index: new/cman/init.d/cman.in
  
  chkconfig2()
  {
-@@ -71,8 +75,7 @@
+@@ -68,8 +72,7 @@
  
  # deb based distros
  if [ ! -d /etc/sysconfig ]; then

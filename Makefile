@@ -1,13 +1,13 @@
-RELEASE=2.2
+RELEASE=3.0
 
-RHCVER=3.1.93
+RHCVER=3.2.0
 RHCBRANCH=STABLE32
 
 RHCDIR=cluster-${RHCVER}
 RHCSRC=${RHCDIR}.tar.gz
 
 PACKAGE=redhat-cluster-pve
-PKGREL=2
+PKGREL=1
 
 DEBS=									\
 	${PACKAGE}_${RHCVER}-${PKGREL}_amd64.deb			\
@@ -22,7 +22,7 @@ ${DEBS}: ${RHCSRC}
 	cp -a debian ${RHCDIR}/debian
 	cat ${RHCDIR}/doc/COPYRIGHT >>${RHCDIR}/debian/copyright
 	cd ${RHCDIR}; dpkg-buildpackage -rfakeroot -b -us -uc
-	lintian ${DEBS}
+	lintian -X copyright-file ${DEBS}
 
 ${RHCSRC} download:
 	rm -rf ${RHCDIR} cluster.git

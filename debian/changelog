@@ -1,3 +1,10 @@
+redhat-cluster-pve (3.2.0-1) unstable; urgency=low
+
+  * update to latest STABLE32 (3.2.0, commit
+    6ac07a7ec331e8f9c1b238e49144731cd48c0150)
+
+ -- Proxmox Support Team <support@proxmox.com>  Fri, 15 Mar 2013 07:19:00 +0100
+
 redhat-cluster-pve (3.1.93-2) unstable; urgency=low
 
   * correct init script dependency, so that open-iscsi is stopped after

@@ -5,17 +5,17 @@ Revert commit 65a0eef71377d2de4ad94e8f20065c4467a441e9 form upstream. We want to
 
 Index: new/cman/init.d/cman.in
 ===================================================================
---- new.orig/cman/init.d/cman.in	2012-10-02 11:07:02.000000000 +0200
-+++ new/cman/init.d/cman.in	2012-10-02 11:07:38.000000000 +0200
-@@ -231,9 +231,9 @@
+--- new.orig/cman/init.d/cman.in	2013-03-15 07:27:17.000000000 +0100
++++ new/cman/init.d/cman.in	2013-03-15 07:30:40.000000000 +0100
+@@ -228,9 +228,9 @@
  	echo -e "$errmsg"
  	failure
  	echo
 -	if [ "$currentaction" = "start" ]; then
--		$thisinvokation stop
+-		stop && rm -f $LOCK_FILE
 -	fi
 +#	if [ "$currentaction" = "start" ]; then
-+#		$thisinvokation stop
++#		stop && rm -f $LOCK_FILE
 +#	fi
  	exit 1
  }
